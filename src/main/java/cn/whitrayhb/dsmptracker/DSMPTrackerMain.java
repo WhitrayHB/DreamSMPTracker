@@ -1,5 +1,7 @@
-package org.example.mirai.plugin;
+package cn.whitrayhb.dsmptracker;
 
+import cn.whitrayhb.dsmptracker.command.Stream;
+import net.mamoe.mirai.console.command.CommandManager;
 import net.mamoe.mirai.console.plugin.jvm.JavaPlugin;
 import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescription;
 import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescriptionBuilder;
@@ -26,18 +28,22 @@ import net.mamoe.mirai.event.events.GroupMessageEvent;
  * 不用复制到 mirai-console-loader 或其他启动器中调试
  */
 
-public final class JavaPluginMain extends JavaPlugin {
-    public static final JavaPluginMain INSTANCE = new JavaPluginMain();
-    private JavaPluginMain() {
-        super(new JvmPluginDescriptionBuilder("org.example.mirai-example", "0.1.0")
+public final class DSMPTrackerMain extends JavaPlugin {
+    public static final DSMPTrackerMain INSTANCE = new DSMPTrackerMain();
+    private DSMPTrackerMain() {
+        super(new JvmPluginDescriptionBuilder("cn.whitrayhb.dsmptracker", "0.1.0")
                 .info("EG")
                 .build());
     }
 
     @Override
     public void onEnable() {
-        getLogger().info("日志");
+        getLogger().info("DreamSMP Tracker Initialized");
+        CommandManager.INSTANCE.registerCommand(Stream.INSTANCE,true);
+        Stream.INSTANCE.initialize();
+/*
         EventChannel<Event> eventChannel = GlobalEventChannel.INSTANCE.parentScope(this);
+
         eventChannel.subscribeAlways(GroupMessageEvent.class, g -> {
             //监听群消息
             getLogger().info(g.getMessage().contentToString());
@@ -46,6 +52,6 @@ public final class JavaPluginMain extends JavaPlugin {
         eventChannel.subscribeAlways(FriendMessageEvent.class, f -> {
             //监听好友消息
             getLogger().info(f.getMessage().contentToString());
-        });
+        });*/
     }
 }
