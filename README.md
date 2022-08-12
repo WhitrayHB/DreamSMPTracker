@@ -1,5 +1,5 @@
-# mirai-console-plugin-template
+# DreamSMP Tracker
 
-[Mirai Console](https://github.com/mamoe/mirai-console) 插件模板, 使用 Kotlin + Gradle.
+一个查询DreamSMP成员状态的Mirai插件，目前功能：成员直播概要
 
-[如何使用](https://github.com/project-mirai/how-to-use-plugin-template)
+待开发功能：Twitter订阅 Twitch订阅 Twitch详情查询
